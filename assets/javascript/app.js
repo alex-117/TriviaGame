@@ -1,3 +1,6 @@
+var categoryChosen;
+
+
 $('#findOutBtn').on('click', function() {
 	var categoryText = "Select a category";
 	$('#findOutBtn').css('display', 'none');
@@ -12,7 +15,7 @@ $('#findOutBtn').on('click', function() {
 var mathCategories = [
 
 	arithmetic = {
-		name: 'Basic arithmetic',
+		name: 'Basic Arithmetic',
 		id: 'arithmetic',
 		ready:true
 	},
@@ -47,21 +50,38 @@ var mathCategories = [
 // and displays an '*' to show it is not ready
 for(var i = 0; i < mathCategories.length; i++) {
 	if(mathCategories[i].ready === true) {
-		mathCategories[i].ready = 'btn-info';
+		checkReady = 'btn-info';
 	} else {
-		mathCategories[i].ready = 'btn-danger';
+		checkReady = 'btn-danger notReady';
 	}
-	var mathCategory = $("<button class='btn btn-lg " + mathCategories[i].ready + " btnCategories'>" + mathCategories[i].name + " </button>");
+	var mathCategory = $("<button class='btn btn-lg " + checkReady + " btnCategories' id='" + mathCategories[i].id + "'>"
+	 + mathCategories[i].name + " </button>");
+	console.log(mathCategories[i].id);
 	$('.math-categories').append(mathCategory);
 }
 
 if($('.btnCategories').hasClass('btn-danger')) {
-	$('.btn-danger').append('*');
+	$('.notReady').append('*');
 }
 
-function chooseCategory() {
-	console.log();
+// May not need this function
+function chooseCategory(category) {
+	if(!categoryChosen) {
+		categoryChosen = true;
+		$('.btnCategories').hide();
+		$('#easyMode').html(currentCategory + " easy mode");
+		$('.categoryDifficulty').show();
+	}	
 }
+
+$('#backBtn').on('click', function() {
+	categoryChosen = false;
+	$('.categoryDifficulty').hide();
+	$('.btnCategories').show();
+	$('#comingSoonText').show();
+	$('#headerText').show();
+	$('#backBtn').hide();
+});
 
 function gameSetup() {
 	$('.btnCategories').on('click', function(event) {
@@ -69,10 +89,76 @@ function gameSetup() {
 		var currentCategory = mathCategories.filter(function(currentCategory) {
 			return currentCategory.id === mathCategoryId;
 			})[0];
-		console.log(mathCategoryId);
-		chooseCategory(currentCategory);
+		console.log(currentCategory);
+		// chooseCategory(currentCategory);
+		if(!categoryChosen && currentCategory.ready) {
+			categoryChosen = true;
+			$('.btnCategories').hide();
+			$('#comingSoonText').hide();
+			$('#easyModeHeading').html(currentCategory.name + ": easy mode");
+			$('#hardModeHeading').html(currentCategory.name + ": hard mode");
+			$('.categoryDifficulty').show();
+			$('#headerText').hide();
+			$('#backBtn').css('display', 'block');
+		}
 	})
 }
+
+
+
+// var arithmeticQuestions = [
+//   question1 = {
+//     name: 'question one',
+//     problem: 'what is 2 + 2?',
+//     choices: [
+//       one = '2',
+//       two = '3',
+//       three = '4',
+//       four = '5'
+    
+//     ],
+//     correctChoice: '4'
+//   },
+
+//    question2 = {
+//     name: 'question one',
+//     problem: 'what is 2 + 2?',
+//     choices: [
+//       one = '2',
+//       two = '3',
+//       three = '4',
+//       four = '5'
+    
+//     ],
+//     correctChoice: '4'
+//   },
+
+//    question3 = {
+//     name: 'question one',
+//     problem: 'what is 2 + 2?',
+//     choices: [
+//       one = '2',
+//       two = '3',
+//       three = '4',
+//       four = '5'
+    
+//     ],
+//     correctChoice: '4'
+//   }
+
+
+// ];
+
+
+// for(var i = 0; i < arithmeticQuestions.length; i++) {
+// 	var questionHeader = $("<div class='question-header'>" +  arithmeticQuestions[i].problem + "</div>");
+//     var questionBody = $("<div class='question-body'></div>")
+//     $('#quizContent').append(questionHeader).append(questionBody);
+//   for(var j = 0; j < arithmeticQuestions[i].choices.length; j++) {
+//   	var choices = $("<button class='choices'>" + arithmeticQuestions[i].choices[j] + "</button>")
+//   	  $('.question-body').append(choices);
+//   }
+// }
 
 gameSetup();
 

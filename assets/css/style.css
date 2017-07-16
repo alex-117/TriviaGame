@@ -1,6 +1,4 @@
-* {
-	box-sizing: border-box;
-}
+* {box-sizing: border-box;}
 
 html,
 body {
@@ -19,13 +17,41 @@ body {
 	color: rgba(255, 255, 255, 1);
 }
 
-.jumbotron h1 {
-	font-size: 600%;
+.jumbotron:after {
+	content: "";
+	display: block;
+	clear: both;
 }
+
+.jumbotron h1 {font-size: 600%;}
 
 .btnCategories {
 	display: none;
 	margin-right: 5px;
+}
+
+.math-categories  {
+	padding: 0;
+}
+
+.categoryDifficulty {
+	padding: 0;
+	display: none;
+	height: 120px;
+	color: #000;
+	cursor: pointer;
+	transition: opacity 0.2s;
+	margin: 35px 0;
+}
+
+.categoryDifficulty:hover {opacity: .9;}
+
+.panel {height: 100%}
+
+#backBtn {
+	display: none;
+	clear: both;
+	content: "";
 }
 
 #comingSoonText {
@@ -33,7 +59,6 @@ body {
 	font-size: 80%;
 	margin-top: 40px;
 	margin-right: 180px;
-
 }
 
 
@@ -43,7 +68,9 @@ body {
 
 
 
-
+.question-body {
+	display: block;
+}
 
 
 
