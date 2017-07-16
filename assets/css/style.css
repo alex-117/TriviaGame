@@ -1,0 +1,55 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background-image: url('../images/background-image.png');
+	background-repeat: none;
+	background-size: cover;
+	font-family: 'Raleway', sans-serif;
+}
+
+
+
+.jumbotron {
+	text-align: center;
+	background-color: rgba(0, 0, 0, .9);
+	margin-top: 100px;
+	color: rgba(255, 255, 255, 1);
+}
+
+.jumbotron h1 {
+	font-size: 600%;
+}
+
+.btnCategories {
+	display: none;
+	margin-right: 5px;
+}
+
+#comingSoonText {
+	text-align: right;
+	font-size: 80%;
+	margin-top: 40px;
+	margin-right: 180px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
