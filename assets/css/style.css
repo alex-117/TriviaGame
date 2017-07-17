@@ -25,6 +25,11 @@ body {
 
 .jumbotron h1 {font-size: 600%;}
 
+#headerText,
+#findOutBtn {
+	margin-top: 40px;
+}
+
 .btnCategories {
 	display: none;
 	margin-right: 5px;
@@ -65,15 +70,37 @@ body {
 
 
 
+#quizContent {
+	font-size: 30px;
+	color: #fff;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
 
+.choiceList {
+	margin-left: 50px;
+	margin-top: 25px;
+	width: 150px;
+}
 
+.choiceList li {
+	list-style: none;
+	width: 100%;
+}
 
-.question-body {
-	display: block;
+.choiceGap {
+	margin-left: 30px;
+	font-size: 25px;
 }
 
 
+.message {
+	display: none;
+	margin-bottom: 20px;
+}
 
+.nextBtn {display: none;}
 
 
 

@@ -16,20 +16,21 @@
 				<button id="findOutBtn" class="btn btn-info btn-lg">Find out</button>
 				<div class="math-categories">
 					<div class="col-md-5 pull-left categoryDifficulty">
-						<div class="panel panel-primary">
+						<div class="panel panel-primary" id="easyMode">
 	  						<div class="panel-heading" id="easyModeHeading"></div>
 	 						<div class="panel-body">
-	    						You will have x minutes to answer x questions
+	    						You will have <span class="easyModeTime"></span> minutes to answer <span class="numQuestions"></span> questions
 	  						</div>
 						</div>
 					</div>
 
 					<div class="col-md-5 pull-right categoryDifficulty">
-						<div class="panel panel-primary">
+						<div class="panel panel-primary" id="hardMode">
 	  						<div class="panel-heading" id="hardModeHeading"></div>
 	 						<div class="panel-body">
-	 							Each question is timed.
-	    						You will have x seconds per question. There are x questions.
+	 							<!-- Each question is timed.
+	    						You will have <span class="hardModeTime"></span> seconds per question. There are <span class="numQuestions"></span> questions. -->
+	    						Coming Soon
 	  						</div>
 						</div>
 					</div>
@@ -37,22 +38,18 @@
 					<button class="btn btn-danger btn-lg" id="backBtn">Back</button>
 
 				</div>
+
+				<div id="quizContent">
+					<div class="currentQuestion"></div>
+					<ul class="choiceList"></ul>
+					<div class="score"></div>
+					<div class="message"></div>
+					<button class="btn btn-lg btn-info nextBtn">Next Question</button>
+				</div>
+
+
 			</div>
 
-			<section id="quizContent">
-				<!-- <div id="arithmeticQuestions">
-					<div id="question1" class="question"></div>
-					<div id="question2" class="question"></div>
-					<div id="question3" class="question"></div>
-					<div id="question4" class="question"></div>
-					<div id="question5" class="question"></div>
-					<div id="question6" class="question"></div>
-					<div id="question7" class="question"></div>
-					<div id="question8" class="question"></div>
-					<div id="question9" class="question"></div>
-					<div id="question10" class="question"></div>
-				</div> -->
-			</section>
 
 
 
