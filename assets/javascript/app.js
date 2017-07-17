@@ -106,59 +106,59 @@ function gameSetup() {
 
 
 
-// var arithmeticQuestions = [
-//   question1 = {
-//     name: 'question one',
-//     problem: 'what is 2 + 2?',
-//     choices: [
-//       one = '2',
-//       two = '3',
-//       three = '4',
-//       four = '5'
+var arithmeticQuestions = [
+  question1 = {
+    name: 'question one',
+    problem: 'what is 2 + 2?',
+    choices: [
+      one = '2',
+      two = '3',
+      three = '4',
+      four = '5'
     
-//     ],
-//     correctChoice: '4'
-//   },
+    ],
+    correctChoice: '4'
+  },
 
-//    question2 = {
-//     name: 'question one',
-//     problem: 'what is 2 + 2?',
-//     choices: [
-//       one = '2',
-//       two = '3',
-//       three = '4',
-//       four = '5'
+   question2 = {
+    name: 'question one',
+    problem: 'what is 2 + 2?',
+    choices: [
+      one = '2',
+      two = '3',
+      three = '4',
+      four = '5'
     
-//     ],
-//     correctChoice: '4'
-//   },
+    ],
+    correctChoice: '4'
+  },
 
-//    question3 = {
-//     name: 'question one',
-//     problem: 'what is 2 + 2?',
-//     choices: [
-//       one = '2',
-//       two = '3',
-//       three = '4',
-//       four = '5'
+   question3 = {
+    name: 'question one',
+    problem: 'what is 8 * 3?',
+    choices: [
+      one = '2',
+      two = '3',
+      three = '4'
     
-//     ],
-//     correctChoice: '4'
-//   }
+    ],
+    correctChoice: '4'
+  }
 
 
-// ];
+];
+
+if(arithmeticQuestions[0].choices[2] === arithmeticQuestions[0].correctChoice) {
+   	console.log(arithmeticQuestions[0].choices[2]);
+   	console.log(arithmeticQuestions[0].correctChoice);
+}
 
 
-// for(var i = 0; i < arithmeticQuestions.length; i++) {
-// 	var questionHeader = $("<div class='question-header'>" +  arithmeticQuestions[i].problem + "</div>");
-//     var questionBody = $("<div class='question-body'></div>")
-//     $('#quizContent').append(questionHeader).append(questionBody);
-//   for(var j = 0; j < arithmeticQuestions[i].choices.length; j++) {
-//   	var choices = $("<button class='choices'>" + arithmeticQuestions[i].choices[j] + "</button>")
-//   	  $('.question-body').append(choices);
-//   }
-// }
+for(var i = 0; i < arithmeticQuestions.length; i++) {
+	var questionProblem = $("<div class='question-problem'>" +  arithmeticQuestions[i].problem + "</div>");
+    var questionChoices = $("<div class='question-choices'>" + arithmeticQuestions[i].choices + "</div>");
+    $('#quizContent').append(questionProblem).append(questionChoices);
+}
 
 gameSetup();
 
