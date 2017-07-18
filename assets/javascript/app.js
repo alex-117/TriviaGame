@@ -2,7 +2,9 @@ var categoryChosen;
 var currentQuestion = 0;
 var correctAnswers = 0;
 var quizOver = false;
-
+var easyModeTimer;
+var hardModeTimer;
+var resetTime;
 
 
 // Basic Arithmetic category questions array
@@ -37,7 +39,7 @@ var mathCategories = [
 		id: 'arithmetic',
 		ready:true,
 		easyTime: 10,
-		hardTime: 30,
+		hardTime: 6,
 		numQuestions: arithmeticQuestionsLength
 	},
 
@@ -127,9 +129,11 @@ function gameSetup() {
 			$('.btnCategories').hide();
 			$('#comingSoonText').hide();
 			$('#easyModeHeading').html(currentCategory.name + ": easy mode");
+			easyModeTimer = currentCategory.easyTime;
 			$('.easyModeTime').html(currentCategory.easyTime);
 			$('.numQuestions').html(currentCategory.numQuestions);
 			$('#hardModeHeading').html(currentCategory.name + ": hard mode");
+			hardModeTimer = currentCategory.hardTime;
 			$('.hardModeTime').html(currentCategory.hardTime);
 			$('.categoryDifficulty').show();
 			$('#headerText').hide();
@@ -141,9 +145,68 @@ function gameSetup() {
 			$('.categoryDifficulty').hide();
 			$('#backBtn').hide();
 			$('.nextBtn').show();
+			easyModeTimerRun();
+		})
+
+		$('#hardMode').on('click', function() {
+			displayCurrentQuestion();
+			$('.categoryDifficulty').hide();
+			$('#backBtn').hide();
+			$('.nextBtn').show();
+			hardModeTimerRun(hardModeTimer);
 		})
 	})
 };
+
+function easyModeDecrement() {
+	easyModeTimer--;
+	$('.timer').html("<h2>" + easyModeTimer + "</h2>");
+	if(easyModeTimer <= 0) {
+		displayScore();
+		easyModeTimerStop();
+		quizOver = true;
+		$('.nextBtn').text('Play again?');
+	}
+}
+
+function easyModeTimerRun() {
+	easyCountdown = setInterval(easyModeDecrement, 1000);
+}
+
+function easyModeTimerStop() {
+	clearInterval(easyCountdown);
+}
+
+function hardModeDecrement() {
+	hardModeTimer--;
+	$('.timer').html("<h2>" + hardModeTimer + "</h2>");
+	if(hardModeTimer <= 0) {
+		currentQuestion++;
+		if(currentQuestion < arithmeticQuestions.length) {
+			displayCurrentQuestion();
+			hardModeTimerStop();
+			hardModeTimerRun(resetTime);
+		} else {
+			hardModeTimerStop();
+			displayScore();
+			$('.nextBtn').text('Play again?');
+			quizOver = true;
+		}
+	}
+}
+
+function hardModeTimerRun(time) {
+	hardModeTimer = time;
+	resetTime = time;
+	hardCountdown = setInterval(hardModeDecrement, 1000);
+}
+
+function hardModeTimerStop() {
+	clearInterval(hardCountdown);
+}
+
+
+
 
 function displayCurrentQuestion() {
 

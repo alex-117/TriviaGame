@@ -78,6 +78,11 @@ body {
 	margin-right: auto;
 }
 
+.timer {
+	position: absolute;
+	left: 70%;
+}
+
 .choiceList {
 	margin-left: 50px;
 	margin-top: 25px;
