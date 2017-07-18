@@ -38,7 +38,7 @@ var mathCategories = [
 		name: 'Basic Arithmetic',
 		id: 'arithmetic',
 		ready:true,
-		easyTime: 10,
+		easyTime: 30,
 		hardTime: 6,
 		numQuestions: arithmeticQuestionsLength
 	},
@@ -193,6 +193,11 @@ function hardModeDecrement() {
 			quizOver = true;
 		}
 	}
+
+	$('.nextBtn').on('click', function() {
+		hardModeTimerStop();
+		hardModeTimerRun(resetTime);
+	});
 }
 
 function hardModeTimerRun(time) {
