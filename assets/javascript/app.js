@@ -197,6 +197,7 @@ function hardModeDecrement() {
 	$('.nextBtn').on('click', function() {
 		hardModeTimerStop();
 		hardModeTimerRun(resetTime);
+		
 		if(currentQuestion >= arithmeticQuestions.length){
 			hardModeTimerStop();
 		}
