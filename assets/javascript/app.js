@@ -166,6 +166,8 @@ function easyModeDecrement() {
 		easyModeTimerStop();
 		quizOver = true;
 		$('.nextBtn').text('Play again?');
+	} else if(currentQuestion === arithmeticQuestions.length) {
+		easyModeTimerStop();
 	}
 }
 
